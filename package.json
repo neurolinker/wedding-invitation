@@ -1,0 +1,37 @@
+{
+  "name": "wedding-invitation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_OPTIONS='--inspect' next -p 7878",
+    "build": "next build",
+    "start": "NODE_ENV=production next start -p 7878",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neurolinker/wedding-invitation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neurolinker/wedding-invitation/issues"
+  },
+  "homepage": "https://github.com/neurolinker/wedding-invitation#readme",
+  "dependencies": {
+    "framer-motion": "^8.2.4",
+    "next": "^13.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.18",
+    "@types/react": "18.0.26",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.4",
+    "typescript": "4.9.4"
+  }
+}
