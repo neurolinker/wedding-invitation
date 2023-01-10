@@ -7,7 +7,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head />
-        <body className = 'bg-white'>
+        <body className = 'bg-gradient-to-r from-[#B1C6B3] to-[#BCCB93]'>
           <Main />
           <NextScript />
         </body>
