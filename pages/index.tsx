@@ -57,10 +57,10 @@ function Index(): JSX.Element {
         <>
             <audio
                 ref={audioRef}
-                src="./music/kahitna-menikahimu.mp3"
+                src="./music/I-Wanna-Grow-Old-With-You-Westlife.mp3"
             />
-            <div className = "fixed w-full bottom-0 z-40 bg-red-600 flex " >
-                <div className = "flex relative w-1/2 h-0">
+            <div className = "fixed w-full bottom-0 z-40 flex " >
+                {/* <div className = "flex relative w-1/2 h-0">
                     <div className = " w-6 flex absolute -top-11" style = {{transform : `translateX(${sY}px)`}} >
                         <img className = "object-cover" src="./images/female.png" alt="female" />
                     </div>
@@ -69,13 +69,13 @@ function Index(): JSX.Element {
                     <div className = "w-6  absolute flex  -top-11 " style = {{transform : `translateX(${-sY}px)`}} >
                     <img className = "object-cover" src="./images/male.png" alt="male" />
                     </div>
-                </div>
+                </div> */}
             </div>
-            <div className = "fixed top-0 right-0">
-                <img className = "w-48 -rotate-90 " src="./images/tropical.png" alt="" />
+            <div className = "fixed bottom-0 md:top-0 right-0">
+                <img className = "w-16 md:w-24 -rotate-180 md:rotate-90 " src="./images/bg-accent.png" alt="" />
             </div>
             <div className = "fixed bottom-0 left-0">
-                <img className = "w-48 rotate-90 " src="./images/tropical.png" alt="" />
+                <img className = "w-16 md:w-24 -rotate-90 " src="./images/bg-accent.png" alt="" />
             </div>
             <div onClick = {() => audioStatus ? pause() : play()} className = "fixed bottom-10 right-5 bg-gray-200 rounded-full p-2 z-50 shadow-xl ">
                 {audioStatus ? (
@@ -91,36 +91,52 @@ function Index(): JSX.Element {
             <div ref={elementRef} className = "flex flex-col justify-center">
                 <div className="w-full h-screen  ">
                     <motion.div
-                        className = "mx-4 md:mx-10 mt-4 md:mt-10 relative mb-24 bg-white bg-clip-padding backdrop-filter bg-opacity-50 backdrop-blur-sm border border-gray-200 rounded-lg flex flex-col md:flex-row "
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        whileInView={{ 
-                            opacity: 1, 
-                            scale: 1,
-                            transition: {
-                            type: "spring",
-                            bounce: 0.4,
-                            duration: 0.8
-                            } 
-                        }}
+                        className = "mx-4 md:mx-10 mt-4 md:mt-10 relative mb-24 rounded-lg flex flex-col md:flex-row "
+                        initial={{
+                            opacity: 0,
+                            y: 50
+                          }}
+                          animate={{
+                            opacity: 1,
+                            y: 0
+                          }}
                     >
-                        <div onClick={() => handleClick()} className = " absolute flex h-full w-full items-center justify-center  p-1">
-                            <div className = "animate-bounce relative flex items-center justify-center">
-                                <img className = "w-24" src="./images/opening.png" alt="" />
-                                <div className = "absolute flex h-full w-full items-center justify-center text-[#BCCB94] text-xs">Buka</div>
+                        {(isMenuOpen) && (
+                            <div onClick={() => handleClick()} className = " animate-pulse absolute md:-bottom-20 md:-left-32 -bottom-8  -left-28 flex  z-40">
+                                <div className = " relative flex  items-center justify-center w-full ">
+                                    <img className = "w-80 rotate-45" src="./images/pita2.png" alt="" />
+                                    <div className = "  absolute bottom-14 right-14 h-4 text-[#EFD687] text-xs rotate-45">
+                                        Buka
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        )}
                         
-                        <div className = "w-full md:w-1/2 h-[calc((100vh-20px)/2)] md:h-[calc(100vh-90px)] items-center justify-center flex p-1">
-                            <img className = "rounded-md object-contain w-2/3 min-h-0" src="https://i.possiblewedding.com/wp-content/uploads/2022/09/foto-cover-1-Lina-Yoan-1568x1045.jpg" alt="main" />
-                        </div>
-                        <div className = " w-full md:w-1/2 h-[calc((100vh-20px)/2)] md:h-[calc(100vh-90px)] flex flex-col items-center justify-center">
-                            <div className = "font-moonRegular text-5xl text-[#BCCB94] mb-10">
-                                Ella & Teguhs
+                        <div className = " w-full md:w-1/2 h-[calc((100vh-20px)/2)] md:h-[calc(100vh-90px)] items-center justify-center flex p-1">
+                            
+                            <div className="flex flex-col items-center justify-center relative w-48 h-48 rounded-full ">
+                                <div className = "absolute  z-40 w-60 h-60 md:w-80 md:h-80 ">
+                                    <img className = "rotate-45 object-cover h-full w-full" src="./images/circle-accent.png" alt="vas" />
+                                </div>
+                                {/* <div className = "font-moonRegular text-4xl text-[#FFD700] mb-2">
+                                        Ella 
+                                </div>
+                                <div className = "font-moonRegular text-4xl text-[#b78700] mb-2">
+                                        &
+                                </div>
+                                <div className = "font-moonRegular text-4xl text-[#b78700] mb-2">
+                                        Teguh
+                                </div> */}
                             </div>
-                            <div className = "font-normal text-sm">
+                        </div>
+                        <div className = "w-full md:w-1/2 h-[calc((100vh-20px)/2)] md:h-[calc(100vh-90px)] flex flex-col items-center justify-center">
+                            <div className = "font-moonRegular text-5xl text-[#EFD687] mb-10">
+                                Ella & Teguh
+                            </div>
+                            <div className = "font-normal text-sm text-[#B58F47]">
                                 Kepada Yth
                             </div>
-                            <div className = "font-bold ">
+                            <div className = "font-bold text-[#B58F47]">
                                 Uli & Randa
                             </div>
                             
@@ -129,7 +145,7 @@ function Index(): JSX.Element {
                     </motion.div>
 
                     <motion.div
-                        className = "mx-4 md:mx-10 mb-24  bg-white bg-clip-padding backdrop-filter bg-opacity-50 backdrop-blur-sm border border-gray-200 rounded-lg flex flex-col md:flex-row p-5 "
+                        className = "mx-4 md:mx-10 mb-24  bg-gray-400 bg-clip-padding backdrop-filter bg-opacity-50 backdrop-blur-sm border border-[#C4A862] rounded-lg flex flex-col md:flex-row p-5 "
                         initial={{ opacity: 0, scale: 0.5 }}
                         whileInView={{ 
                             opacity: 1, 
@@ -143,16 +159,22 @@ function Index(): JSX.Element {
                     >
                         
                         <div className = " m-2 w-full  flex flex-col items-center justify-center">
-                            <div className = "font-moonRegular text-4xl mb-5 text-[#BCCB94]">
+                            {/* <div className = "font-moonRegular font-bold text-4xl mb-5 text-[#FCE089]">
                                 Tie The Knot
+                            </div> */}
+                            <div className = "relative w-full  flex items-center justify-center font-moonRegular text-4xl mb-14 text-[#FCE089]">
+                            Tie The Knot
+                            <div className = "absolute flex  items-center justify-center top-5 h-10 w-full md:w-1/2">
+                                <img className = " h-auto" src="./images/line.png" alt="" />
                             </div>
-                            <div className = "font-normal text-center text-md mb-3">
+                        </div>
+                            <div className = "font-thin text-center text-md mb-3 text-[#DEC57A]">
 وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ
                             </div>
-                            <div className = "font-thin text-center">
+                            <div className = "font-thin text-center text-white">
                             “Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan-pasangan dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir.”
                             </div>
-                            <div className = "font-normal text-center text-md mb-3">
+                            <div className = "font-normal text-center text-md mb-3 text-[#FCE089]">
                             (QS Ar-Rum : 21)
                             </div>
                         </div>
@@ -162,7 +184,7 @@ function Index(): JSX.Element {
 
                     </motion.div>
                     <motion.div
-                        className = "mx-4 md:mx-10 mb-24 bg-white bg-clip-padding backdrop-filter bg-opacity-50 backdrop-blur-sm border border-gray-200 rounded-lg flex-col flex p-5 "
+                        className = " flex-col flex p-5 "
                         initial={{ opacity: 0, scale: 0.5 }}
                         whileInView={{ 
                             opacity: 1, 
@@ -175,33 +197,39 @@ function Index(): JSX.Element {
                         }}
                     >
                         
-                        <div className = "w-full flex items-center justify-center font-moonRegular text-4xl mb-5 text-[#BCCB94]">Mempelai</div>
-                        <div className = "text-sm text-center mb-10">Dengan segala kerendahan hati dan dengan ucapan syukur atas karunia Tuhan, kami hendak menyampaikan kabar bahagia pernikahan kami :</div>
+                        {/* <div className = "w-full flex items-center justify-center font-moonRegular text-4xl mb-5 text-[#FCE089]">Mempelai</div> */}
+                        <div className = "relative w-full  flex items-center justify-center font-moonRegular text-4xl mb-14 text-[#FCE089]">
+                            Mempelai
+                            <div className = "absolute flex  items-center justify-center top-5 h-10 w-full md:w-1/2">
+                                <img className = " h-auto" src="./images/line.png" alt="" />
+                            </div>
+                        </div>
+                        <div className = "text-md text-center mb-10 text-white font-thin">Dengan segala kerendahan hati dan dengan ucapan syukur atas karunia Tuhan, kami hendak menyampaikan kabar bahagia pernikahan kami :</div>
                         <div className="flex flex-col md:flex-row">
                             <div className = "flex flex-col w-full md:w-1/2 items-center justify-center mb-10">
-                                <img src="https://i.possiblewedding.com/wp-content/uploads/2022/09/foto-profil-2-Lina-Yoan.jpg" alt="" className="rounded-t-full  p-2 bg-[#BCCB94] object-contain w-2/3 min-h-0" />
-                                <div className="mt-10 font-moonRegular text-4xl text-[#BCCB94]">Ella</div>
-                                <div className="mt-5 font-normal text-xl">Lailya Sahara</div>
-                                <div className="mt-10 font-normal">Putri dari :</div>
-                                <div className="mt-1 font-thin">Bapak M. Anshori</div>
-                                <div className="mt-1 font-thin">&</div>
-                                <div className="mt-1 font-thin">Ibu Susetyowati (Alm)</div>
+                                <img src="https://i.possiblewedding.com/wp-content/uploads/2022/09/foto-profil-2-Lina-Yoan.jpg" alt="" className="rounded-t-full  p-1 bg-[#FCE089] object-contain w-2/3 min-h-0" />
+                                <div className="mt-10 font-moonRegular text-4xl text-[#FCE089]">Ella</div>
+                                <div className="mt-5 font-normal text-xl text-white">Lailya Sahara</div>
+                                <div className="mt-10 font-normal text-white">Putri dari :</div>
+                                <div className="mt-1 font-thin text-white">Bapak M. Anshori</div>
+                                <div className="mt-1 font-thin text-white">&</div>
+                                <div className="mt-1 font-thin text-white">Ibu Susetyowati (Alm)</div>
                             </div>
                             <div className = "flex flex-col w-full md:w-1/2 items-center justify-center mb-10">
-                                <img src="https://i.possiblewedding.com/wp-content/uploads/2022/09/foto-profil-1-Lina-Yoan.jpg" alt="" className="rounded-t-full  p-2 bg-[#BCCB94] object-contain w-2/3 min-h-0" />
-                                <div className="mt-10 font-moonRegular text-4xl text-[#BCCB94]">Teguh</div>
-                                <div className="mt-5 font-normal text-xl">Teguh Wijaya</div>
-                                <div className="mt-10 font-normal">Putra dari :</div>
-                                <div className="mt-1 font-thin">Bapak M. Anshori</div>
-                                <div className="mt-1 font-thin">&</div>
-                                <div className="mt-1 font-thin">Ibu Susetyowati</div>
+                                <img src="https://i.possiblewedding.com/wp-content/uploads/2022/09/foto-profil-1-Lina-Yoan.jpg" alt="" className="rounded-t-full  p-1 bg-[#FCE089] object-contain w-2/3 min-h-0" />
+                                <div className="mt-10 font-moonRegular text-4xl text-[#FCE089]">Teguh</div>
+                                <div className="mt-5 font-normal text-xl text-white">Teguh Wijaya</div>
+                                <div className="mt-10 font-normal text-white">Putra dari :</div>
+                                <div className="mt-1 font-thin text-white">Bapak M. Anshori</div>
+                                <div className="mt-1 font-thin text-white">&</div>
+                                <div className="mt-1 font-thin text-white">Ibu Susetyowati</div>
                             </div>
                         </div>
 
                     </motion.div>
 
                     <motion.div
-                        className = "mx-4 md:mx-10 mb-24 bg-white bg-clip-padding backdrop-filter bg-opacity-50 backdrop-blur-sm border border-gray-200 rounded-lg flex-col flex p-5 "
+                        className = " mb-24 bg-gray-400 bg-clip-padding backdrop-filter bg-opacity-50 backdrop-blur-sm border-y-2 border-[#C4A862] flex-col flex p-5 "
                         initial={{ opacity: 0, scale: 0.5 }}
                         whileInView={{ 
                             opacity: 1, 
@@ -214,35 +242,41 @@ function Index(): JSX.Element {
                         }}
                     >
                         
-                        <div className = "w-full flex items-center justify-center font-moonRegular text-4xl mb-5 text-[#BCCB94]">Waktu & Tempat</div>
-                        <div className = "text-sm text-center mb-10">Yang akan dilaksanakan pada:</div>
+                        {/* <div className = "w-full flex items-center justify-center font-moonRegular text-4xl mb-5 text-[#FCE089] font-bold">Waktu & Tempat</div> */}
+                        <div className = "relative w-full  flex items-center justify-center font-moonRegular text-4xl mb-14 text-[#FCE089]">
+                            Waktu & Tempat
+                            <div className = "absolute flex  items-center justify-center top-5 h-10 w-full md:w-1/2">
+                                <img className = " h-auto" src="./images/line.png" alt="" />
+                            </div>
+                        </div>
+                        <div className = "text-md font-thin text-white text-center mb-10">Yang akan dilaksanakan pada:</div>
                         <div className="flex flex-col md:flex-row p-4">
-                            <div className = " md:mr-2 flex flex-col w-full md:w-1/2 p-4 items-center justify-center mb-10 bg-[#6DA59A] rounded-lg">
-                                <div className = "w-full flex items-center justify-center font-moonRegular text-4xl mb-5 text-white">
+                            <div className = " md:mr-2 flex flex-col w-full md:w-1/2 p-4 items-center justify-center mb-10  rounded-lg">
+                                <div className = "w-full flex items-center justify-center font-moonRegular font-bold text-4xl mb-5 text-white">
                                     Akad Nikah
                                 </div>
-                                <div className = "w-full flex items-center justify-center font-thin text-xl mb-5 text-white">
+                                <div className = "w-full flex items-center text-center justify-center font-thin text-md mb-1 text-white">
                                     Minggu, 9 Oktober 2023
                                 </div>
-                                <div className = "w-full flex items-center justify-center font-thin text-xl mb-5 text-white">
+                                <div className = "w-full flex items-center justify-center font-thin text-md mb-5 text-white">
                                     07.00 WIB
                                 </div>
-                                <div className = "w-full text-center flex items-center justify-center font-thin text-md mb-5 text-white">
+                                <div className = "w-full text-center flex items-center justify-center font-thin text-sm mb-5 text-white">
                                     Jl. MT Haryono Kp. Gutitan No. 15 Rt. 01 Rw. 02 Kel. Sarirejo Semarang Timur
                                 </div>
                         
                             </div>
-                            <div className = " md:ml-2 flex flex-col w-full md:w-1/2 p-4 items-center justify-center mb-10 bg-[#6DA59A] rounded-lg">
-                                <div className = "w-full flex items-center justify-center font-moonRegular text-4xl mb-5 text-white">
+                            <div className = " md:ml-2 flex flex-col w-full md:w-1/2 p-4 items-center justify-center mb-10  rounded-lg">
+                                <div className = "w-full flex items-center justify-center font-moonRegular text-4xl mb-5 font-bold text-white">
                                     Resepsi
                                 </div>
-                                <div className = "w-full flex items-center justify-center font-thin text-xl mb-5 text-white">
+                                <div className = "w-full flex items-center text-center justify-center font-thin text-md mb-1 text-white">
                                     Minggu, 9 Oktober 2023
                                 </div>
-                                <div className = "w-full flex items-center justify-center font-thin text-xl mb-5 text-white">
+                                <div className = "w-full flex items-center justify-center font-thin text-md mb-5 text-white">
                                     10.00 WIB
                                 </div>
-                                <div className = "w-full text-center flex items-center justify-center font-thin text-md mb-5 text-white">
+                                <div className = "w-full text-center flex items-center justify-center font-thin text-sm mb-5 text-white">
                                     Jl. MT Haryono Kp. Gutitan No. 15 Rt. 01 Rw. 02 Kel. Sarirejo Semarang Timur
                                 </div>
                         
@@ -250,21 +284,15 @@ function Index(): JSX.Element {
                         </div>
 
                     </motion.div>
-                    <div className=" mb-24 bg-[#6DA59A] bg-clip-padding backdrop-filter bg-opacity-50 backdrop-blur-sm flex-col flex p-5 ">
-                        <div className = "w-full flex items-center justify-center font-moonRegular text-4xl mb-5 text-white">
-                            Album
-                        </div>
-                        <div className = "w-full flex items-center text-center md:px-10 justify-center font-thin text-md mb-5 text-white">
-                            Tidak ada yang spesial dalam cerita kami. Tapi kami sangat spesial untuk satu sama lain. Dan Kami bersyukur, dipertemukan Allah diwaktu terbaik, Kini kami menanti hari istimewa kami.
+                    <div className=" mb-24 bg-clip-padding backdrop-filter bg-opacity-50 backdrop-blur-sm flex-col flex p-5 ">
                         
-                        </div>
-                        <PhotoAlbum layout="masonry" photos={photos} />
-
-                    </div>
-                    <div className=" mb-24 bg-[#6DA59A] bg-clip-padding backdrop-filter bg-opacity-50 backdrop-blur-sm flex-col flex p-5 ">
-                        <div className = "w-full flex items-center justify-center font-moonRegular text-4xl mb-5 text-white">
+                        <div className = "relative w-full  flex items-center justify-center font-moonRegular text-4xl mb-14 text-white">
                             Album
+                            <div className = "absolute flex  items-center justify-center top-5 h-10 w-full md:w-1/2">
+                                <img className = " h-auto" src="./images/line.png" alt="" />
+                            </div>
                         </div>
+                        
                         <div className = "w-full flex items-center text-center md:px-10 justify-center font-thin text-md mb-5 text-white">
                             Tidak ada yang spesial dalam cerita kami. Tapi kami sangat spesial untuk satu sama lain. Dan Kami bersyukur, dipertemukan Allah diwaktu terbaik, Kini kami menanti hari istimewa kami.
                         
