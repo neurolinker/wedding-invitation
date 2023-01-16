@@ -173,7 +173,7 @@ function Index(): JSX.Element {
                     </div>
                 </>
             )}
-            {(!isMenuOpen) && (
+            {/* {(!isMenuOpen) && (
             <div className = "flex w-full fixed bottom-0 z-50">
                 <div className="flex flex-row items-center justify-center m-2 w-full bg-green-600 rounded-lg p-1">
                     <div className="w-1/4 bg-red-600 flex items-center justify-center">1</div>
@@ -182,7 +182,7 @@ function Index(): JSX.Element {
                     <div className="w-1/4 bg-yellow-600 flex items-center justify-center">4</div>
                 </div>
             </div>
-            )}
+            )} */}
             <div onClick = {() => audioStatus ? pause() : play()} className = "fixed bottom-5 right-5 bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] rounded-full p-2 z-50 shadow-xl ">
                 {audioStatus ? (
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -214,6 +214,9 @@ function Index(): JSX.Element {
                             <div className="flex flex-col items-center justify-center relative w-48 h-48 rounded-full ">
                                 <div className = "absolute  z-40 w-60 h-60 md:w-80 md:h-80 ">
                                     <img className = "rotate-45 object-cover h-full w-full" src="./images/circle-accent.png" alt="vas" />
+                                </div>
+                                <div className = "absolute flex items-center justify-center z-40  bg-opacity-20 h-full w-full m-4 rounded-full ">
+                                    <img className = "h-auto rounded-full" src="./images/main-photo.png" alt="vas" />
                                 </div>
                                 {/* <div className = "font-moonRegular text-4xl text-[#FFD700] mb-2">
                                         Ella 
@@ -461,8 +464,8 @@ function Index(): JSX.Element {
                                 <div className = "absolute flex z-40 ">
                                     <img className = "rotate-45 object-contain" src="./images/circle-accent.png" alt="vas" />
                                 </div>
-                                <div className = "absolute flex z-40 bg-red-600 h-full w-full m-4 rounded-full ">
-                                    {/* <img className = "object-contain rounded-full" src="https://alexandra.bridestory.com/images/dpr_1.0,f_auto,fl_progressive,q_80,c_fill,g_faces,w_412/blogs/sungjoo.son-66669976_499398623961959_4776602684656989155_n-HkhjhRA3P/prewedding-a-la-foto-romantis-korea-cek-inspirasinya-di-album-ini-20.png" alt="vas" /> */}
+                                <div className = "absolute p-9 flex items-center justify-center z-40  bg-opacity-20 h-full w-full m-4 rounded-full ">
+                                    <img className = "h-auto rounded-full" src="./images/main-photo.png" alt="vas" />
                                 </div>
                             </div>
                         </div>
