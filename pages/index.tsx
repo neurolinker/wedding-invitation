@@ -12,6 +12,14 @@ import { AddMessageModel } from "../models/add-message-model";
 import { createAvatar } from '@dicebear/core';
 import { initials } from '@dicebear/collection';
 import SVG from 'react-inlinesvg';
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+// import optional lightbox plugins
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 function Index(): JSX.Element {
     
@@ -23,6 +31,7 @@ function Index(): JSX.Element {
     const [audioStatus, setAudioStatus] = React.useState<boolean>(false);
     const [messages, setMessages] =  React.useState([])
     const [messageForm, setMessageForm] = React.useState<AddMessageModel>(new AddMessageModel())
+    const [index, setIndex] = React.useState<number>(-1)
     const audioRef = React.useRef(null);
     const THREE_DAYS_IN_MS = 3 * 24 * 60 * 60 * 1000;
     const NOW_IN_MS = new Date().getTime();
@@ -37,6 +46,13 @@ function Index(): JSX.Element {
         // { src: "https://react-photo-album.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage12.5a9347ea.jpg&w=384&q=75", width: 900, height: 1000 },
         { key:'5', src: "https://react-photo-album.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage12.5a9347ea.jpg&w=384&q=75", width: 400, height: 700 },
     ];
+
+    const slides = photos.map(({ src, width, height }) => ({
+        src,
+        width,
+        height
+    }));
+
     const handleClick = async() => {
         // setPlaybackRate(playbackRate + 0.1);
         await setIsMenuOpen(false)
@@ -157,6 +173,16 @@ function Index(): JSX.Element {
                     </div>
                 </>
             )}
+            {(!isMenuOpen) && (
+            <div className = "flex w-full fixed bottom-0 z-50">
+                <div className="flex flex-row items-center justify-center m-2 w-full bg-green-600 rounded-lg p-1">
+                    <div className="w-1/4 bg-red-600 flex items-center justify-center">1</div>
+                    <div className="w-1/4 bg-yellow-600 flex items-center justify-center">2</div>
+                    <div className="w-1/4 bg-red-600 flex items-center justify-center">3</div>
+                    <div className="w-1/4 bg-yellow-600 flex items-center justify-center">4</div>
+                </div>
+            </div>
+            )}
             <div onClick = {() => audioStatus ? pause() : play()} className = "fixed bottom-5 right-5 bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] rounded-full p-2 z-50 shadow-xl ">
                 {audioStatus ? (
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -201,7 +227,7 @@ function Index(): JSX.Element {
                             </div>
                         </div>
                         <div className = "w-full md:w-1/2 h-[calc((100vh-20px)/2)] md:h-[calc(100vh-90px)] flex flex-col items-center justify-center">
-                            <div className = "font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] font-moonRegular text-5xl mb-10 p-2">
+                            <div className = "font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] font-moonRegular text-2xl md:text-5xl  mb-10 p-2">
                                 Ella & Teguh
                             </div>
                             <div className = "font-normal text-sm text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">
@@ -216,7 +242,7 @@ function Index(): JSX.Element {
                     </motion.div>
 
                     <motion.div
-                        className = "mx-4 md:mx-10 mb-24  bg-gray-400 bg-clip-padding backdrop-filter bg-opacity-50 backdrop-blur-sm border border-[#C4A862] rounded-lg flex flex-col md:flex-row p-5 "
+                        className = " mb-14  bg-slate-400 bg-clip-padding backdrop-filter bg-opacity-10 backdrop-blur-sm border-y-2 border-[#C4A862] flex flex-col md:flex-row p-2 "
                         initial={{ opacity: 0, scale: 0.5 }}
                         whileInView={{ 
                             opacity: 1, 
@@ -229,11 +255,11 @@ function Index(): JSX.Element {
                         }}
                     >
                         
-                        <div className = " m-2 w-full  flex flex-col items-center justify-center">
+                        <div className = " relative  w-full  flex flex-col items-center justify-center">
                             {/* <div className = "font-moonRegular font-bold text-4xl mb-5 text-[#FCE089]">
                                 Tie The Knot
                             </div> */}
-                            <div className = "font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] relative w-full  flex items-center justify-center font-moonRegular text-4xl mb-14">
+                            <div className = "font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] relative w-full  flex items-center justify-center font-moonRegular text-3xl mb-14">
                             Tie The Knot
                             <div className = "absolute flex  items-center justify-center top-5 h-10 w-full md:w-1/2">
                                 <img className = " h-auto" src="./images/line.png" alt="tie-the-knot" />
@@ -250,16 +276,16 @@ function Index(): JSX.Element {
                             </div>
                         </div>
                         <div className = "m-2 w-full md:w-1/2 items-center justify-center flex p-1">
-                            <img className = "rounded-md object-contain w-2/3 min-h-0" src="https://i.possiblewedding.com/wp-content/uploads/2022/09/0172D62E-ED8F-4610-8CE2-123984767F71-lina-saviola.jpg" alt="main" />
+                            <img className = "rounded-xl object-contain w-2/3 min-h-0" src="https://i.possiblewedding.com/wp-content/uploads/2022/09/0172D62E-ED8F-4610-8CE2-123984767F71-lina-saviola.jpg" alt="main" />
                         </div>
 
                     </motion.div>
                     
-                    <div className = "flex-col flex p-5">
+                    <div className = "flex-col flex p-2">
                         {/* <div className = "w-full flex items-center justify-center font-moonRegular text-4xl mb-5 text-[#FCE089]">Mempelai</div> */}
-                        <div className = "relative w-full font-bold flex items-center justify-center font-moonRegular text-4xl mb-14 text-transparent bg-clip-text bg-gradient-to-t from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">
+                        <div className = "relative w-full font-bold flex items-center justify-center font-moonRegular text-3xl mb-14 text-transparent bg-clip-text bg-gradient-to-t from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">
                             Mempelai
-                            <div className = "absolute flex  items-center justify-center top-5 h-10 w-full md:w-1/2">
+                            <div className = "absolute flex  items-center justify-center top-5 h-10 w-full md:w-1/3">
                                 <img className = " h-auto" src="./images/line.png" alt="mempelai" />
                             </div>
                         </div>
@@ -268,11 +294,11 @@ function Index(): JSX.Element {
                             <div className = "flex flex-col w-full md:w-1/2 items-center justify-center mb-10">
                                 <img src="https://i.possiblewedding.com/wp-content/uploads/2022/09/foto-profil-2-Lina-Yoan.jpg" alt="a" className="rounded-t-full  p-1 bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] object-contain w-2/3 min-h-0" />
                                 <div className="mt-10 font-moonRegular p-1 text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">Ella</div>
-                                <div className="mt-5 font-normal text-xl text-white">Lailya Sahara</div>
+                                <div className="mt-5 font-normal text-xl text-white">Lailya Shahara</div>
                                 <div className="mt-5 font-normal text-white">Putri dari :</div>
                                 <div className="mt-1 font-thin text-white">Bapak M. Anshori</div>
                                 <div className="mt-1 font-thin text-white">&</div>
-                                <div className="mt-1 font-thin text-white">Ibu Susetyowati (Alm)</div>
+                                <div className="mt-1 font-thin text-white">Ibu Susetyowati (Almh.)</div>
                             </div>
                             <div className = "flex flex-col w-full md:w-1/2 items-center justify-center mb-10">
                                 <img src="https://i.possiblewedding.com/wp-content/uploads/2022/09/foto-profil-1-Lina-Yoan.jpg" alt="b" className="rounded-t-full  p-1 bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] object-contain w-2/3 min-h-0" />
@@ -287,11 +313,11 @@ function Index(): JSX.Element {
 
                     </div>
 
-                    <div className = "relative mb-24 bg-gray-400 bg-clip-padding backdrop-filter bg-opacity-50 backdrop-blur-sm border-y-2 border-[#C4A862] flex-col flex p-5 ">
+                    <div className = "relative mb-20 bg-slate-400 bg-clip-padding backdrop-filter bg-opacity-10 backdrop-blur-sm border-y-2 border-[#C4A862] flex-col flex p-2 ">
                         {/* <div className = "w-full flex items-center justify-center font-moonRegular text-4xl mb-5 text-[#FCE089] font-bold">Waktu & Tempat</div> */}
-                        <div className = "relative w-full  flex items-center justify-center font-moonRegular text-4xl mb-14 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">
+                        <div className = "relative w-full  flex items-center justify-center font-moonRegular text-3xl mb-14 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">
                             Waktu & Tempat
-                            <div className = "absolute flex  items-center justify-center top-5 h-10 w-full md:w-1/2">
+                            <div className = "absolute flex  items-center justify-center top-5 h-10 w-full md:w-1/3">
                                 <img className = " h-auto" src="./images/line.png" alt="waktu-dan-tempat" />
                             </div>
                         </div>
@@ -336,11 +362,11 @@ function Index(): JSX.Element {
                         </div>
 
                     </div>
-                    <div className=" mb-24 bg-clip-padding backdrop-filter bg-opacity-50 backdrop-blur-sm flex-col flex p-5 ">
+                    <div className=" mb-24 bg-clip-padding backdrop-filter bg-opacity-50 backdrop-blur-sm flex-col flex p-2 ">
                         
-                        <div className = "relative w-full text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] font-bold flex items-center justify-center font-moonRegular text-4xl mb-14 text-white">
+                        <div className = "relative w-full text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] font-bold flex items-center justify-center font-moonRegular text-3xl mb-14 text-white">
                             Album
-                            <div className = "absolute flex  items-center justify-center top-5 h-10 w-full md:w-1/2">
+                            <div className = "absolute flex  items-center justify-center top-5 h-10 w-full md:w-1/3">
                                 <img className = " h-auto" src="./images/line.png" alt="album" />
                             </div>
                         </div>
@@ -349,15 +375,22 @@ function Index(): JSX.Element {
                             Tidak ada yang spesial dalam cerita kami. Tapi kami sangat spesial untuk satu sama lain. Dan Kami bersyukur, dipertemukan Allah diwaktu terbaik, Kini kami menanti hari istimewa kami.
                         
                         </div>
-                        <PhotoAlbum layout="masonry" photos={photos} />
-
+                        <PhotoAlbum layout="masonry" photos={photos}  onClick={({ index }) => setIndex(index)} />
+                        <Lightbox
+                            slides={slides}
+                            open={index >= 0}
+                            index={index}
+                            close={() => setIndex(-1)}
+                            // enable optional lightbox plugins
+                            plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
+                        />
                     </div>
 
-                    <div className = "relative mb-24 bg-gray-400 bg-clip-padding backdrop-filter bg-opacity-50 backdrop-blur-sm border-y-2 border-[#C4A862] flex-col flex p-5 ">
+                    <div className = "relative mb-24 bg-gray-400 bg-clip-padding backdrop-filter bg-opacity-50 backdrop-blur-sm border-y-2 border-[#C4A862] flex-col flex p-2 ">
                         {/* <div className = "w-full flex items-center justify-center font-moonRegular text-4xl mb-5 text-[#FCE089] font-bold">Waktu & Tempat</div> */}
-                        <div className = "relative w-full  flex items-center justify-center font-moonRegular text-4xl mb-14 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">
+                        <div className = "relative w-full  flex items-center justify-center font-moonRegular text-3xl mb-14 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">
                             Kirimkan Pesan
-                            <div className = "absolute flex  items-center justify-center top-5 h-10 w-full md:w-1/2">
+                            <div className = "absolute flex  items-center justify-center top-5 h-10 w-full md:w-1/3">
                                 <img className = " h-auto" src="./images/line.png" alt="waktu-dan-tempat" />
                             </div>
                         </div>
@@ -367,42 +400,44 @@ function Index(): JSX.Element {
                             <div className = "  md:mr-2 flex flex-col w-full items-center  mb-10  rounded-lg">
                                 
                                 <div className="mb-6 w-full">
-                                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
+                                    <label className="block mb-2 text-sm font-medium text-gray-300">Nama</label>
                                     <input value = {messageForm.name} onChange={(e) => setMessageForm({...messageForm, name: e.target.value})} type="text" id="default-input" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama Anda"/>
                                 </div>
                                 <div className="mb-6 w-full">
-                                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pesan</label>
+                                    <label className="block mb-2 text-sm font-medium text-gray-300">Pesan</label>
                                     <textarea value = {messageForm.message} onChange={(e) => setMessageForm({...messageForm, message: e.target.value})} id="message" rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tinggalkan pesan anda"></textarea>
                                 </div>
                                 <div className="mb-6 w-full">
-                                    <div onClick={() => sendMessage()} className = "bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] p-2 rounded-full text-center text-white">Kirim</div>
+                                    <div onClick={() => sendMessage()} className = "bg-gradient-to-r from-[#CFAF67] via-[#CEBE83] to-[#CFAF67] p-2 rounded-full text-center text-white">Kirim</div>
                                 </div>
                             </div>
-                            <div className = " md:ml-2  h-64 overflow-y-scroll flex flex-col w-full items-center mb-10  rounded-lg">
+                            <div className = "bg-[#374151] rounded-xl md:ml-2 px-3 py-3 w-full h-72 flex ">
+                                <div className = " overflow-y-scroll flex flex-col w-full h-full items-center mb-10  rounded-lg">
 
-                                {messages.map((obj) => {
-                                    return (
-                                        <div key = {obj.id} className = "flex w-full py-2 ">
-                                            <div className = "flex items-center justify-center flex-shrink-0 mr-3">
-                                                <div className = "bg-gradient-to-t from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] w-10 h-10 rounded-full">
-                                                    <div className = "text-gray-600">
-                                                        <SVG className = "flex object-cover rounded-full " src={obj.avatar} />
+                                    {messages.map((obj) => {
+                                        return (
+                                            <div key = {obj.id} className = "flex w-full py-2 ">
+                                                <div className = "flex items-center justify-center flex-shrink-0 mr-3">
+                                                    <div className = "bg-gradient-to-t from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] w-7 h-7 md:w-10 md:h-10 rounded-full">
+                                                        <div className = "text-gray-600">
+                                                            <SVG className = "flex object-cover rounded-full " src={obj.avatar} />
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div className = "bg-white w-full border rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
-                                                <div className="flex flex-col md:flex-row md:justify-between md:items-center md:space-x-2 mb-4">
-                                                    <strong className = "text-sm"> {obj.name}</strong> 
-                                                    <span className = "text-xs text-gray-400">{moment(obj.datePost).format('D MMMM YYYY, HH:mm')}</span>
+                                                <div className = " w-full p-3 rounded-tl-xl rounded-br-xl bg-gray-600 leading-relaxed">
+                                                    <div className="flex flex-col md:flex-row md:justify-between md:items-center md:space-x-2 mb-4">
+                                                        <strong className = "text-sm text-gray-300"> {obj.name}</strong> 
+                                                        <span className = "text-xs text-white">{moment(obj.datePost).format('D MMMM YYYY, HH:mm')}</span>
+                                                    </div>
+                                                    <p className = "text-xs text-white font-thin">
+                                                        {obj.message}
+                                                    </p>
                                                 </div>
-                                                <p className = "text-xs">
-                                                    {obj.message}
-                                                </p>
                                             </div>
-                                        </div>
-                                    )
-                                })}
-                        
+                                        )
+                                    })}
+                            
+                                </div>
                             </div>
                         </div>
 
@@ -426,16 +461,19 @@ function Index(): JSX.Element {
                                 <div className = "absolute flex z-40 ">
                                     <img className = "rotate-45 object-contain" src="./images/circle-accent.png" alt="vas" />
                                 </div>
+                                <div className = "absolute flex z-40 bg-red-600 h-full w-full m-4 rounded-full ">
+                                    {/* <img className = "object-contain rounded-full" src="https://alexandra.bridestory.com/images/dpr_1.0,f_auto,fl_progressive,q_80,c_fill,g_faces,w_412/blogs/sungjoo.son-66669976_499398623961959_4776602684656989155_n-HkhjhRA3P/prewedding-a-la-foto-romantis-korea-cek-inspirasinya-di-album-ini-20.png" alt="vas" /> */}
+                                </div>
                             </div>
                         </div>
                         <div className = "w-full flex flex-col items-center justify-center  ">
-                            <div className = "font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] font-moonRegular text-5xl mb-10 p-2">
+                            <div className = "font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] font-moonRegular text-2xl md:text-5xl mb-10 p-2">
                                 Ella & Teguh
                             </div>
-                            <div className = "font-normal text-center text-sm text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">
+                            <div className = "font-normal text-center text-sm text-gray-400">
                                 Atas kehadiran dan doa restunya, kami ucapkan terimakasih
                             </div>
-                            <div className = "mt-10 mb-5 text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">
+                            <div className = "mt-10 mb-5 text-xl font-bold text-gray-300">
                                 Protokol Kesehatan
                             </div>
                             <div className = "flex items-start space-x-2 w-full">
@@ -443,7 +481,7 @@ function Index(): JSX.Element {
                                     <div className="flex items-center justify-center">
                                         <img className = "flex h-10" src="./images/mask.png" alt="" />
                                     </div>
-                                    <div className=" text-center text-sm">
+                                    <div className=" text-center text-sm ">
                                         Gunakan Masker
                                     </div>
                                 </div>
