@@ -31,7 +31,8 @@
     "react-dom": "^18.2.0",
     "react-inlinesvg": "^3.0.1",
     "react-photo-album": "^2.0.0",
-    "react-scroll": "^1.8.9"
+    "react-scroll": "^1.8.9",
+    "yet-another-react-lightbox": "^2.2.7"
   },
   "devDependencies": {
     "@types/node": "18.11.18",

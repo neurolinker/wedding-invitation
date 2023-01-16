@@ -10,6 +10,9 @@ module.exports = {
         
         moonRegular : ["moon-regular", "sans-serif"],
       },
+      backgroundImage: theme => ({
+        'main-pattern': "url('/images/main-bg.png')",
+      })
     },
   },
   plugins: [],
