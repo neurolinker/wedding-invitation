@@ -39,12 +39,27 @@ function Index(): JSX.Element {
     const dateTimeAfterThreeDays = NOW_IN_MS + THREE_DAYS_IN_MS;
 
     const photos = [
-        { key:'1', src: "https://react-photo-album.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage01.018d1d35.jpg&w=384&q=75", width: 800, height: 600 },
-        { key:'2', src: "https://react-photo-album.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage02.cf33eff7.jpg&w=384&q=75", width: 900, height: 1600 },
-        { key:'3', src: "https://react-photo-album.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage08.95e095b5.jpg&w=384&q=75", width: 400, height: 200 },
-        { key:'4', src: "https://react-photo-album.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage08.95e095b5.jpg&w=384&q=75", width: 500, height: 600 },
-        // { src: "https://react-photo-album.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage12.5a9347ea.jpg&w=384&q=75", width: 900, height: 1000 },
-        { key:'5', src: "https://react-photo-album.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage12.5a9347ea.jpg&w=384&q=75", width: 400, height: 700 },
+        { key:'1', src: "./images/album/wd1.jpg", width: 1032, height: 1500 },
+        { key:'2', src: "./images/album/wd2.jpg", width: 1040, height: 1500 },
+        { key:'3', src: "./images/album/wd3.jpg", width: 1032, height: 1500 },
+        { key:'19', src: "./images/album/wd19.jpg", width: 1024, height: 768 },
+        { key:'20', src: "./images/album/wd20.jpg", width: 1024, height: 679 },
+        { key:'4', src: "./images/album/wd4.jpg", width: 990, height: 1500 },
+        { key:'5', src: "./images/album/wd5.jpg", width: 1030, height: 1500 },
+        { key:'6', src: "./images/album/wd6.jpg", width: 1046, height: 1500 },
+        { key:'17', src: "./images/album/wd17.jpg", width: 1024, height: 548 },
+        { key:'18', src: "./images/album/wd18.jpg", width: 768, height: 512 },
+        { key:'7', src: "./images/album/wd7.jpg", width: 1037, height: 1500 },
+        { key:'8', src: "./images/album/wd8.jpg", width: 1031, height: 1500 },
+        { key:'9', src: "./images/album/wd9.jpg", width: 1032, height: 1500 },
+        { key:'10', src: "./images/album/wd10.jpg", width: 1032, height: 1500 },
+        // { key:'11', src: "./images/album/wd11.jpg", width: 1031, height: 1500 },
+        // { key:'12', src: "./images/album/wd12.jpg", width: 1033, height: 1500 },
+        // { key:'13', src: "./images/album/wd13.jpg", width: 1040, height: 1500 },
+        { key:'14', src: "./images/album/wd14.jpg", width: 985, height: 1500 },
+        { key:'15', src: "./images/album/wd15.jpg", width: 768, height: 512 },
+        { key:'16', src: "./images/album/wd16.jpg", width: 768, height: 513 },
+        
     ];
 
     const slides = photos.map(({ src, width, height }) => ({
@@ -332,19 +347,19 @@ function Index(): JSX.Element {
                                 <img className = " h-auto" src="./images/cream/line.webp" alt="waktu-dan-tempat" />
                             </div>
                         </div>
-                        <div className = "text-md font-normal text-[#8c5d1d] text-center mb-10">Yang akan dilaksanakan pada:</div>
+                        <div className = "text-md font-normal text-[#E2DA97] text-center mb-10">Yang akan dilaksanakan pada:</div>
                         <div className="flex flex-col md:flex-row p-4">
                             <div className = " md:mr-2 flex flex-col w-full md:w-1/2 p-4 items-center justify-center mb-10  rounded-lg">
                                 <div className = "text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] w-full flex items-center justify-center font-moonRegular font-bold text-4xl mb-5 text-white">
                                     Akad Nikah
                                 </div>
-                                <div className = "w-full flex items-center text-center justify-center font-normal text-md mb-1 text-[#8c5d1d]">
+                                <div className = "w-full flex items-center text-center justify-center font-normal text-md mb-1 text-[#E2DA97]">
                                     Minggu, 9 Oktober 2023
                                 </div>
-                                <div className = "w-full flex items-center justify-center font-thin text-md mb-5 text-[#8c5d1d]">
+                                <div className = "w-full flex items-center justify-center font-normal text-md mb-5 text-[#E2DA97]">
                                     07.00 WIB
                                 </div>
-                                <div className = "w-full text-center flex items-center justify-center font-thin text-sm mb-5 text-[#8c5d1d]">
+                                <div className = "w-full text-center flex items-center justify-center font-normal text-sm mb-5 text-[#E2DA97]">
                                     Jl. MT Haryono Kp. Gutitan No. 15 Rt. 01 Rw. 02 Kel. Sarirejo Semarang Timur
                                 </div>
                         
@@ -353,13 +368,13 @@ function Index(): JSX.Element {
                                 <div className = "text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] w-full flex items-center justify-center font-moonRegular text-4xl mb-5 font-bold text-white">
                                     Resepsi
                                 </div>
-                                <div className = "w-full flex items-center text-center justify-center font-normal text-md mb-1 text-[#8c5d1d]">
+                                <div className = "w-full flex items-center text-center justify-center font-normal text-md mb-1 text-[#E2DA97]">
                                     Minggu, 9 Oktober 2023
                                 </div>
-                                <div className = "w-full flex items-center justify-center font-thin text-md mb-5 text-[#8c5d1d]">
+                                <div className = "w-full flex items-center justify-center font-normal text-md mb-5 text-[#E2DA97]">
                                     10.00 WIB
                                 </div>
-                                <div className = "w-full text-center flex items-center justify-center font-thin text-sm mb-5 text-[#8c5d1d]">
+                                <div className = "w-full text-center flex items-center justify-center font-normal text-sm mb-5 text-[#E2DA97]">
                                     Jl. MT Haryono Kp. Gutitan No. 15 Rt. 01 Rw. 02 Kel. Sarirejo Semarang Timur
                                 </div>
                         
@@ -411,11 +426,11 @@ function Index(): JSX.Element {
                             <div className = "  md:mr-2 flex flex-col w-full items-center  mb-10  rounded-lg">
                                 
                                 <div className="mb-6 w-full">
-                                    <label className="block mb-2 text-sm font-medium text-[#8c5d1d]">Nama</label>
+                                    <label className="block mb-2 text-sm font-medium text-[#E2DA97]">Nama</label>
                                     <input value = {messageForm.name} onChange={(e) => setMessageForm({...messageForm, name: e.target.value})} type="text" id="default-input" className=" bg-[#FFFBE7] border border-gray-300 text-[#8c5d1d] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Nama Anda"/>
                                 </div>
                                 <div className="mb-6 w-full">
-                                    <label className="block mb-2 text-sm font-medium text-[#8c5d1d]">Pesan</label>
+                                    <label className="block mb-2 text-sm font-medium text-[#E2DA97]">Pesan</label>
                                     <textarea value = {messageForm.message} onChange={(e) => setMessageForm({...messageForm, message: e.target.value})} id="message" rows={4} className="block p-2.5 w-full text-sm text-[#8c5d1d] bg-[#FFFBE7] rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Tinggalkan pesan anda"></textarea>
                                 </div>
                                 <div className="mb-6 w-full">
@@ -473,7 +488,7 @@ function Index(): JSX.Element {
                                     <img className = "objact-cover rounded-full" src="./images/main-photo.png" alt="vas" />
                                 </div>
                                 <div className = "absolute flex z-40 ">
-                                    <img className = "rotate-45 object-contain" src="./images/circle-accent.webp" alt="vas" />
+                                    <img className = "rotate-45 object-contain" src="./images/cream/circle-accent.webp" alt="vas" />
                                 </div>
                                 
                             </div>
