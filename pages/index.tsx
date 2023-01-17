@@ -142,16 +142,22 @@ function Index(): JSX.Element {
                     </div>
                 </div> */}
             </div>
-            <div className = "fixed bottom-0 md:top-0 right-0">
-                <img className = "w-16 md:w-24 -rotate-180 md:rotate-90 " src="./images/bg-accent.png" alt="gold-accent-right" />
+            <div className = "fixed bottom-0 right-0">
+                <img className = "w-16 md:w-36 -rotate-180  " src="./images/cream/corner.webp" alt="gold-accent-right" />
             </div>
             <div className = "fixed bottom-0 left-0">
-                <img className = "w-16 md:w-24 -rotate-90 " src="./images/bg-accent.png" alt="gold-accent-left" />
+                <img className = "w-16 md:w-36 -rotate-90 " src="./images/cream/corner.webp" alt="gold-accent-left" />
+            </div>
+            <div className = "fixed top-0 left-0">
+                <img className = "w-16 md:w-36  " src="./images/cream/corner.webp" alt="gold-accent-right" />
+            </div>
+            <div className = "fixed top-0 right-0">
+                <img className = "w-16 md:w-36 rotate-90 " src="./images/cream/corner.webp" alt="gold-accent-left" />
             </div>
             {(isMenuOpen) && (
                 <>
                 <div className = " hidden md:block fixed bottom-10 -right-16">
-                    <img className = "w-80 -rotate-45" src="./images/pita-1.png" alt="pita-lg" />
+                    <img className = "w-80 -rotate-45" src="./images/cream/pita.webp" alt="pita-lg" />
                 </div>
             
                 <div onClick={() => handleClick()} className = "hidden md:flex z-50 -rotate-45 fixed bottom-20 right-20 p-0.5 bg-gradient-to-r from-[#8C5D1D] via-[#B5AF82] to-[#8C5D1D] rounded-full">
@@ -164,7 +170,7 @@ function Index(): JSX.Element {
             {(isMenuOpen) && (
                 <>
                     <div className = "flex md:hidden items-center justify-center fixed top-0 h-screen w-full bottom-1/2 z-50">
-                        <img className = "w-full mt-16" src="./images/pita-1.png" alt="pita-sm" />
+                        <img className = "w-full mt-16" src="./images/cream/pita.webp" alt="pita-sm" />
                         <div onClick={() => handleClick()} className = "mt-9 z-50 flex fixed p-0.5 bg-gradient-to-r from-[#8C5D1D] via-[#B5AF82] to-[#8C5D1D] rounded-full">
                             <div className = "flex animate-pulse rounded-full py-4 px-2 bg-gradient-to-r from-[#2E2B2D] via-[#575757] to-[#2E2B2D] text-white text-sm">
                                 Open
@@ -208,30 +214,31 @@ function Index(): JSX.Element {
                           }}
                     >
                         
-                        
-                        <div className = " w-full md:w-1/2 h-[calc((100vh-20px)/2)] md:h-[calc(100vh-90px)] items-center justify-center flex p-1">
+                        <div className = "w-full md:w-1/2 h-[calc((100vh-20px)/2)] md:h-[calc(100vh-90px)] items-center justify-center flex p-1">
                             
+                            <div className="flex flex-col items-center justify-center relative w-52 h-52 md:w-96 md:h-96 rounded-full  ">
+                                <div className = "absolute p-7 md:p-14 flex items-center justify-center z-40  bg-opacity-20  rounded-full ">
+                                    <img className = "objact-cover rounded-full" src="./images/main-photo.png" alt="vas" />
+                                </div>
+                                <div className = "absolute flex z-40 ">
+                                    <img className = "rotate-45 object-contain" src="./images/cream/circle-accent.webp" alt="vas" />
+                                </div>
+                                
+                            </div>
+                        </div>
+                        {/* <div className = " w-full md:w-1/2 h-[calc((100vh-20px)/2)] md:h-[calc(100vh-90px)] items-center justify-center flex p-1">
                             <div className="flex flex-col items-center justify-center relative w-48 h-48 rounded-full ">
                                 <div className = "absolute  z-40 w-60 h-60 md:w-80 md:h-80 ">
-                                    <img className = "rotate-45 object-cover h-full w-full" src="./images/circle-accent.png" alt="vas" />
+                                    <img className = "rotate-45 object-cover h-full w-full" src="./images/circle-accent.webp" alt="vas" />
                                 </div>
                                 <div className = "absolute flex items-center justify-center z-40  bg-opacity-20 h-full w-full m-4 rounded-full ">
                                     <img className = "h-auto rounded-full" src="./images/main-photo.png" alt="vas" />
                                 </div>
-                                {/* <div className = "font-moonRegular text-4xl text-[#FFD700] mb-2">
-                                        Ella 
-                                </div>
-                                <div className = "font-moonRegular text-4xl text-[#b78700] mb-2">
-                                        &
-                                </div>
-                                <div className = "font-moonRegular text-4xl text-[#b78700] mb-2">
-                                        Teguh
-                                </div> */}
                             </div>
-                        </div>
+                        </div> */}
                         <div className = "w-full md:w-1/2 h-[calc((100vh-20px)/2)] md:h-[calc(100vh-90px)] flex flex-col items-center justify-center">
                             <div className = "font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] font-moonRegular text-2xl md:text-5xl  mb-10 p-2">
-                                Ella & Teguh
+                            {process.env.NEXT_PUBLIC_WOMAN_BRIDE_INITIAL} & {process.env.NEXT_PUBLIC_MAN_BRIDE_INITIAL}
                             </div>
                             <div className = "font-normal text-sm text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">
                                 Kepada Yth
@@ -245,7 +252,8 @@ function Index(): JSX.Element {
                     </motion.div>
 
                     <motion.div
-                        className = " mb-14  bg-slate-400 bg-clip-padding backdrop-filter bg-opacity-10 backdrop-blur-sm border-y-2 border-[#C4A862] flex flex-col md:flex-row p-2 "
+                    style={{color:'red'}}
+                        className = " mb-14 bg-[#70a878] bg-opacity-70 bg-clip-padding backdrop-filter  backdrop-blur-sm border-y-2 border-[#C4A862] flex flex-col md:flex-row p-2 "
                         initial={{ opacity: 0, scale: 0.5 }}
                         whileInView={{ 
                             opacity: 1, 
@@ -265,13 +273,13 @@ function Index(): JSX.Element {
                             <div className = "font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] relative w-full  flex items-center justify-center font-moonRegular text-3xl mb-14">
                             Tie The Knot
                             <div className = "absolute flex  items-center justify-center top-5 h-10 w-full md:w-1/2">
-                                <img className = " h-auto" src="./images/line.png" alt="tie-the-knot" />
+                                <img className = " h-auto" src="./images/cream/line.webp" alt="tie-the-knot" />
                             </div>
                         </div>
-                            <div className = "font-thin text-center text-md mb-3 text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">
+                            <div className = "font-thin text-center text-md mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">
 وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ
                             </div>
-                            <div className = "font-thin text-center text-white">
+                            <div className = "font-thin text-center text-[#8c5d1d]">
                             “Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan-pasangan dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir.”
                             </div>
                             <div className = "font-normal text-center text-md mb-3 text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">
@@ -279,7 +287,7 @@ function Index(): JSX.Element {
                             </div>
                         </div>
                         <div className = "m-2 w-full md:w-1/2 items-center justify-center flex p-1">
-                            <img className = "rounded-xl object-contain w-2/3 min-h-0" src="https://i.possiblewedding.com/wp-content/uploads/2022/09/0172D62E-ED8F-4610-8CE2-123984767F71-lina-saviola.jpg" alt="main" />
+                            <img className = "rounded-xl object-contain w-2/3 min-h-0" src="./images/album/wd1.jpg" alt="main" />
                         </div>
 
                     </motion.div>
@@ -289,54 +297,54 @@ function Index(): JSX.Element {
                         <div className = "relative w-full font-bold flex items-center justify-center font-moonRegular text-3xl mb-14 text-transparent bg-clip-text bg-gradient-to-t from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">
                             Mempelai
                             <div className = "absolute flex  items-center justify-center top-5 h-10 w-full md:w-1/3">
-                                <img className = " h-auto" src="./images/line.png" alt="mempelai" />
+                                <img className = " h-auto" src="./images/cream/line.webp" alt="mempelai" />
                             </div>
                         </div>
-                        <div className = "text-md text-center mb-10 text-white font-thin">Dengan segala kerendahan hati dan dengan ucapan syukur atas karunia Tuhan, kami hendak menyampaikan kabar bahagia pernikahan kami :</div>
+                        <div className = "text-md text-center mb-10 text-[#8c5d1d] font-thin">Dengan segala kerendahan hati dan dengan ucapan syukur atas karunia Tuhan, kami hendak menyampaikan kabar bahagia pernikahan kami :</div>
                         <div className="flex flex-col md:flex-row">
                             <div className = "flex flex-col w-full md:w-1/2 items-center justify-center mb-10">
-                                <img src="https://i.possiblewedding.com/wp-content/uploads/2022/09/foto-profil-2-Lina-Yoan.jpg" alt="a" className="rounded-t-full  p-1 bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] object-contain w-2/3 min-h-0" />
-                                <div className="mt-10 font-moonRegular p-1 text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">Ella</div>
-                                <div className="mt-5 font-normal text-xl text-white">Lailya Shahara</div>
-                                <div className="mt-5 font-normal text-white">Putri dari :</div>
-                                <div className="mt-1 font-thin text-white">Bapak M. Anshori</div>
-                                <div className="mt-1 font-thin text-white">&</div>
-                                <div className="mt-1 font-thin text-white">Ibu Susetyowati (Almh.)</div>
+                                <img src="./images/album/wd6.jpg" alt="a" className="rounded-t-full  p-1 bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] object-contain w-2/3 min-h-0" />
+                                <div className="mt-10 font-moonRegular p-1 text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">{process.env.NEXT_PUBLIC_WOMAN_BRIDE_INITIAL}</div>
+                                <div className="mt-5 font-normal text-xl text-[#8c5d1d]">{process.env.NEXT_PUBLIC_WOMAN_BRIDE}</div>
+                                <div className="mt-5 font-normal text-[#8c5d1d]">Putri dari :</div>
+                                <div className="mt-1 font-thin text-[#8c5d1d]">Bapak {process.env.NEXT_PUBLIC_WOMAN_BRIDE_FATHER}</div>
+                                <div className="mt-1 font-thin text-[#8c5d1d]">&</div>
+                                <div className="mt-1 font-thin text-[#8c5d1d]">Ibu {process.env.NEXT_PUBLIC_WOMAN_BRIDE_MOTHER}</div>
                             </div>
                             <div className = "flex flex-col w-full md:w-1/2 items-center justify-center mb-10">
-                                <img src="https://i.possiblewedding.com/wp-content/uploads/2022/09/foto-profil-1-Lina-Yoan.jpg" alt="b" className="rounded-t-full  p-1 bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] object-contain w-2/3 min-h-0" />
-                                <div className="mt-10 p-1 font-moonRegular text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">Teguh</div>
-                                <div className="mt-5 font-normal text-xl text-white">Teguh Wijaya</div>
-                                <div className="mt-5 font-normal text-white">Putra dari :</div>
-                                <div className="mt-1 font-thin text-white">Bapak M. Anshori</div>
-                                <div className="mt-1 font-thin text-white">&</div>
-                                <div className="mt-1 font-thin text-white">Ibu Susetyowati</div>
+                                <img src="./images/album/wd5.jpg" alt="b" className="rounded-t-full  p-1 bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] object-contain w-2/3 min-h-0" />
+                                <div className="mt-10 p-1 font-moonRegular text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">{process.env.NEXT_PUBLIC_MAN_BRIDE_INITIAL}</div>
+                                <div className="mt-5 font-normal text-xl text-[#8c5d1d]">{process.env.NEXT_PUBLIC_MAN_BRIDE}</div>
+                                <div className="mt-5 font-normal text-[#8c5d1d]">Putra dari :</div>
+                                <div className="mt-1 font-thin text-[#8c5d1d]">Bapak {process.env.NEXT_PUBLIC_MAN_BRIDE_FATHER}</div>
+                                <div className="mt-1 font-thin text-[#8c5d1d]">&</div>
+                                <div className="mt-1 font-thin text-[#8c5d1d]">Ibu {process.env.NEXT_PUBLIC_MAN_BRIDE_MOTHER}</div>
                             </div>
                         </div>
 
                     </div>
 
-                    <div className = "relative mb-20 bg-slate-400 bg-clip-padding backdrop-filter bg-opacity-10 backdrop-blur-sm border-y-2 border-[#C4A862] flex-col flex p-2 ">
+                    <div className = "relative mb-20 bg-[#70a878] bg-opacity-70 bg-clip-padding backdrop-filter backdrop-blur-sm border-y-2 border-[#C4A862] flex-col flex p-2 ">
                         {/* <div className = "w-full flex items-center justify-center font-moonRegular text-4xl mb-5 text-[#FCE089] font-bold">Waktu & Tempat</div> */}
                         <div className = "relative w-full  flex items-center justify-center font-moonRegular text-3xl mb-14 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">
                             Waktu & Tempat
                             <div className = "absolute flex  items-center justify-center top-5 h-10 w-full md:w-1/3">
-                                <img className = " h-auto" src="./images/line.png" alt="waktu-dan-tempat" />
+                                <img className = " h-auto" src="./images/cream/line.webp" alt="waktu-dan-tempat" />
                             </div>
                         </div>
-                        <div className = "text-md font-thin text-white text-center mb-10">Yang akan dilaksanakan pada:</div>
+                        <div className = "text-md font-normal text-[#8c5d1d] text-center mb-10">Yang akan dilaksanakan pada:</div>
                         <div className="flex flex-col md:flex-row p-4">
                             <div className = " md:mr-2 flex flex-col w-full md:w-1/2 p-4 items-center justify-center mb-10  rounded-lg">
                                 <div className = "text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] w-full flex items-center justify-center font-moonRegular font-bold text-4xl mb-5 text-white">
                                     Akad Nikah
                                 </div>
-                                <div className = "w-full flex items-center text-center justify-center font-thin text-md mb-1 text-white">
+                                <div className = "w-full flex items-center text-center justify-center font-normal text-md mb-1 text-[#8c5d1d]">
                                     Minggu, 9 Oktober 2023
                                 </div>
-                                <div className = "w-full flex items-center justify-center font-thin text-md mb-5 text-white">
+                                <div className = "w-full flex items-center justify-center font-thin text-md mb-5 text-[#8c5d1d]">
                                     07.00 WIB
                                 </div>
-                                <div className = "w-full text-center flex items-center justify-center font-thin text-sm mb-5 text-white">
+                                <div className = "w-full text-center flex items-center justify-center font-thin text-sm mb-5 text-[#8c5d1d]">
                                     Jl. MT Haryono Kp. Gutitan No. 15 Rt. 01 Rw. 02 Kel. Sarirejo Semarang Timur
                                 </div>
                         
@@ -345,13 +353,13 @@ function Index(): JSX.Element {
                                 <div className = "text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] w-full flex items-center justify-center font-moonRegular text-4xl mb-5 font-bold text-white">
                                     Resepsi
                                 </div>
-                                <div className = "w-full flex items-center text-center justify-center font-thin text-md mb-1 text-white">
+                                <div className = "w-full flex items-center text-center justify-center font-normal text-md mb-1 text-[#8c5d1d]">
                                     Minggu, 9 Oktober 2023
                                 </div>
-                                <div className = "w-full flex items-center justify-center font-thin text-md mb-5 text-white">
+                                <div className = "w-full flex items-center justify-center font-thin text-md mb-5 text-[#8c5d1d]">
                                     10.00 WIB
                                 </div>
-                                <div className = "w-full text-center flex items-center justify-center font-thin text-sm mb-5 text-white">
+                                <div className = "w-full text-center flex items-center justify-center font-thin text-sm mb-5 text-[#8c5d1d]">
                                     Jl. MT Haryono Kp. Gutitan No. 15 Rt. 01 Rw. 02 Kel. Sarirejo Semarang Timur
                                 </div>
                         
@@ -367,14 +375,14 @@ function Index(): JSX.Element {
                     </div>
                     <div className=" mb-24 bg-clip-padding backdrop-filter bg-opacity-50 backdrop-blur-sm flex-col flex p-2 ">
                         
-                        <div className = "relative w-full text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] font-bold flex items-center justify-center font-moonRegular text-3xl mb-14 text-white">
+                        <div className = "relative w-full text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] font-bold flex items-center justify-center font-moonRegular text-3xl mb-14">
                             Album
                             <div className = "absolute flex  items-center justify-center top-5 h-10 w-full md:w-1/3">
-                                <img className = " h-auto" src="./images/line.png" alt="album" />
+                                <img className = " h-auto" src="./images/cream/line.webp" alt="album" />
                             </div>
                         </div>
                         
-                        <div className = "w-full flex items-center text-center md:px-10 justify-center font-thin text-md mb-5 text-white">
+                        <div className = "w-full flex items-center text-center md:px-10 justify-center font-thin text-md mb-5 text-[#8c5d1d]">
                             Tidak ada yang spesial dalam cerita kami. Tapi kami sangat spesial untuk satu sama lain. Dan Kami bersyukur, dipertemukan Allah diwaktu terbaik, Kini kami menanti hari istimewa kami.
                         
                         </div>
@@ -389,32 +397,32 @@ function Index(): JSX.Element {
                         />
                     </div>
 
-                    <div className = "relative mb-24 bg-gray-400 bg-clip-padding backdrop-filter bg-opacity-50 backdrop-blur-sm border-y-2 border-[#C4A862] flex-col flex p-2 ">
+                    <div className = "relative mb-24 bg-[#70a878] bg-opacity-70 bg-clip-padding backdrop-filter  backdrop-blur-sm border-y-2 border-[#C4A862] flex-col flex p-2 ">
                         {/* <div className = "w-full flex items-center justify-center font-moonRegular text-4xl mb-5 text-[#FCE089] font-bold">Waktu & Tempat</div> */}
                         <div className = "relative w-full  flex items-center justify-center font-moonRegular text-3xl mb-14 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">
                             Kirimkan Pesan
                             <div className = "absolute flex  items-center justify-center top-5 h-10 w-full md:w-1/3">
-                                <img className = " h-auto" src="./images/line.png" alt="waktu-dan-tempat" />
+                                <img className = " h-auto" src="./images/cream/line.webp" alt="waktu-dan-tempat" />
                             </div>
                         </div>
-                        <div className = "text-md font-thin text-white text-center mb-10">Yang akan dilaksanakan pada:</div>
+                        {/* <div className = "text-md font-thin text-[#8c5d1d] text-center mb-10">Tinggalkan pesan anda</div> */}
                         <div className="flex flex-col md:flex-row p-4">
                             
                             <div className = "  md:mr-2 flex flex-col w-full items-center  mb-10  rounded-lg">
                                 
                                 <div className="mb-6 w-full">
-                                    <label className="block mb-2 text-sm font-medium text-gray-300">Nama</label>
-                                    <input value = {messageForm.name} onChange={(e) => setMessageForm({...messageForm, name: e.target.value})} type="text" id="default-input" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama Anda"/>
+                                    <label className="block mb-2 text-sm font-medium text-[#8c5d1d]">Nama</label>
+                                    <input value = {messageForm.name} onChange={(e) => setMessageForm({...messageForm, name: e.target.value})} type="text" id="default-input" className=" bg-[#FFFBE7] border border-gray-300 text-[#8c5d1d] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Nama Anda"/>
                                 </div>
                                 <div className="mb-6 w-full">
-                                    <label className="block mb-2 text-sm font-medium text-gray-300">Pesan</label>
-                                    <textarea value = {messageForm.message} onChange={(e) => setMessageForm({...messageForm, message: e.target.value})} id="message" rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tinggalkan pesan anda"></textarea>
+                                    <label className="block mb-2 text-sm font-medium text-[#8c5d1d]">Pesan</label>
+                                    <textarea value = {messageForm.message} onChange={(e) => setMessageForm({...messageForm, message: e.target.value})} id="message" rows={4} className="block p-2.5 w-full text-sm text-[#8c5d1d] bg-[#FFFBE7] rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Tinggalkan pesan anda"></textarea>
                                 </div>
                                 <div className="mb-6 w-full">
                                     <div onClick={() => sendMessage()} className = "bg-gradient-to-r from-[#CFAF67] via-[#CEBE83] to-[#CFAF67] p-2 rounded-full text-center text-white">Kirim</div>
                                 </div>
                             </div>
-                            <div className = "bg-[#374151] rounded-xl md:ml-2 px-3 py-3 w-full h-72 flex ">
+                            <div className = "rounded-xl md:ml-2 px-3 py-3 w-full h-72 flex ">
                                 <div className = " overflow-y-scroll flex flex-col w-full h-full items-center mb-10  rounded-lg">
 
                                     {messages.map((obj) => {
@@ -427,12 +435,12 @@ function Index(): JSX.Element {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div className = " w-full p-3 rounded-tl-xl rounded-br-xl bg-gray-600 leading-relaxed">
+                                                <div className = " w-full p-3 rounded-tl-xl rounded-br-xl bg-[#FFFBE7] leading-relaxed">
                                                     <div className="flex flex-col md:flex-row md:justify-between md:items-center md:space-x-2 mb-4">
-                                                        <strong className = "text-sm text-gray-300"> {obj.name}</strong> 
-                                                        <span className = "text-xs text-white">{moment(obj.datePost).format('D MMMM YYYY, HH:mm')}</span>
+                                                        <strong className = "text-sm text-[#8c5d1d]"> {obj.name}</strong> 
+                                                        <span className = "text-xs text-[#8c5d1d]">{moment(obj.datePost).format('D MMMM YYYY, HH:mm')}</span>
                                                     </div>
-                                                    <p className = "text-xs text-white font-thin">
+                                                    <p className = "text-xs text-[#8c5d1d]">
                                                         {obj.message}
                                                     </p>
                                                 </div>
@@ -461,47 +469,48 @@ function Index(): JSX.Element {
                         <div className = " w-full items-center justify-center flex p-1">
                             
                             <div className="flex flex-col items-center justify-center relative w-48 h-48 rounded-full ">
+                                <div className = "absolute p-7 flex items-center justify-center z-40  bg-opacity-20  rounded-full ">
+                                    <img className = "objact-cover rounded-full" src="./images/main-photo.png" alt="vas" />
+                                </div>
                                 <div className = "absolute flex z-40 ">
-                                    <img className = "rotate-45 object-contain" src="./images/circle-accent.png" alt="vas" />
+                                    <img className = "rotate-45 object-contain" src="./images/circle-accent.webp" alt="vas" />
                                 </div>
-                                <div className = "absolute p-9 flex items-center justify-center z-40  bg-opacity-20 h-full w-full m-4 rounded-full ">
-                                    <img className = "h-auto rounded-full" src="./images/main-photo.png" alt="vas" />
-                                </div>
+                                
                             </div>
                         </div>
                         <div className = "w-full flex flex-col items-center justify-center  ">
                             <div className = "font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] font-moonRegular text-2xl md:text-5xl mb-10 p-2">
-                                Ella & Teguh
+                            {process.env.NEXT_PUBLIC_MAN_BRIDE_INITIAL} & {process.env.NEXT_PUBLIC_WOMAN_BRIDE_INITIAL}
                             </div>
-                            <div className = "font-normal text-center text-sm text-gray-400">
+                            <div className = "font-normal text-center text-sm text-[#8c5d1d]">
                                 Atas kehadiran dan doa restunya, kami ucapkan terimakasih
                             </div>
-                            <div className = "mt-10 mb-5 text-xl font-bold text-gray-300">
+                            <div className = "mt-10 mb-5 text-xl font-bold text-[#8c5d1d]">
                                 Protokol Kesehatan
                             </div>
-                            <div className = "flex items-start space-x-2 w-full">
-                                <div className="flex rounded-xl p-2 flex-col space-y-3 items-center justify-center w-1/3 bg-gradient-to-t from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">
-                                    <div className="flex items-center justify-center">
-                                        <img className = "flex h-10" src="./images/mask.png" alt="" />
-                                    </div>
-                                    <div className=" text-center text-sm ">
+                            <div className = "flex items-start justify-center space-x-2 w-full">
+                                <div className=" flex rounded-xl p-2 flex-col items-center  justify-center w-20 h-20">
+                                    {/* <div className="flex items-center justify-center h-full"> */}
+                                        <img className = "w-10 h-10" src="./images/mask.png" alt="" />
+                                    {/* </div> */}
+                                    <div className=" flex text-center text-xs text-[#8c5d1d]">
                                         Gunakan Masker
                                     </div>
                                 </div>
-                                <div className="flex rounded-xl p-2 flex-col space-y-3 items-center justify-center w-1/3 bg-gradient-to-t from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">
-                                    <div className="flex items-center justify-center">
-                                        <img className = "flex h-10" src="./images/distance.png" alt="" />
-                                    </div>
-                                    <div className=" text-center px-2 text-sm">
-                                        Menjaga Jarak
+                                <div className=" flex rounded-xl p-2 flex-col items-center  justify-center w-20 h-20">
+                                    {/* <div className="flex items-center justify-center h-full"> */}
+                                        <img className = "w-10 h-10" src="./images/washing.png" alt="" />
+                                    {/* </div> */}
+                                    <div className=" flex text-center text-xs text-[#8c5d1d]">
+                                        Mencuci Tangan
                                     </div>
                                 </div>
-                                <div className="h-full flex rounded-xl p-2 flex-col space-y-3 items-center justify-center w-1/3 bg-gradient-to-t from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">
-                                    <div className="flex items-center justify-center">
-                                        <img className = "flex h-10" src="./images/washing.png" alt="" />
-                                    </div>
-                                    <div className=" text-center text-sm">
-                                        Mencuci Tangan
+                                <div className=" flex rounded-xl p-2 flex-col items-center  justify-center w-20 h-20">
+                                    {/* <div className="flex items-center justify-center h-full"> */}
+                                        <img className = "w-10 h-10" src="./images/distance.png" alt="" />
+                                    {/* </div> */}
+                                    <div className=" flex text-center text-xs text-[#8c5d1d]">
+                                        Menjaga Jarak
                                     </div>
                                 </div>
                             </div>
