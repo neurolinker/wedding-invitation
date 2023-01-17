@@ -12,7 +12,7 @@ const ExpiredNotice = () => {
 
 const ShowCounter = ({ days, hours, minutes, seconds }) => {
   return (
-    <div className="flex items-center flex-row">
+    <div className="flex items-center flex-row text-[#8c5d1d]">
         <DateTimeDisplay value={days} type={'Hari'} isDanger={days <= 3} />
         <p>:</p>
         <DateTimeDisplay value={hours} type={'Jam'} isDanger={false} />
