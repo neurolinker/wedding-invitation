@@ -11,7 +11,7 @@ module.exports = {
         moonRegular : ["moon-regular", "sans-serif"],
       },
       backgroundImage: theme => ({
-        'main-pattern': "url('/images/cream/card-bg.webp')",
+        'main-pattern': "url('/images/dark-blue/card-bg.webp')",
       })
     },
   },
