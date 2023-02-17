@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
+import { CoverProps } from "../types/cover-props"
 
-const CoverPage = (): JSX.Element => {
+const CoverPage = ({ guest }: CoverProps): JSX.Element => {
     return (
         <motion.div
             className = "-z-20 px-4 md:px-10 pt-4 md:pt-10 bg-main-pattern relative pb-24 rounded-lg flex flex-col md:flex-row "
@@ -41,7 +42,7 @@ const CoverPage = (): JSX.Element => {
                     Kepada Yth
                 </div>
                 <div className = "font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#A98F5B] via-[#FBE698] to-[#A98F5B]">
-                    Uli & Randa
+                    {guest}
                 </div>
             </div>
         </motion.div>
