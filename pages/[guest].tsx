@@ -12,8 +12,12 @@ import T2kPage from "../components/T2k.page";
 import ScrollPosition from "../components/ScrollPosition";
 import Navigation from "../components/Navigation";
 import FixedAccentPage from "../components/FixedAccent.page";
+import { useRouter } from 'next/router'
+import { GetServerSideProps } from "next";
 
-function Index(): JSX.Element {
+function Index({guest}): JSX.Element {
+
+
     const startRef = React.createRef<HTMLInputElement>();
     const elementRef = React.useRef(null);
     const { scrollYProgress } = useScroll();
@@ -65,18 +69,30 @@ function Index(): JSX.Element {
             />
             <div ref={elementRef} className = "flex flex-col justify-center">
                 <div className="w-full h-screen  ">
-                    <CoverPage/>
+                    <CoverPage guest = {guest}/>
                     <T2kPage ref = {startRef}/>
                     <BrideInfo/>
                     <TimeAndPlace/>
                     <AlbumPage/>
-                    <MessagePage/>
+                    <MessagePage guest = {guest} />
                     <ClossingPage/>
                 </div>
             </div>
             
         </>
     )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+
+    const { guest } = context.query
+    
+   
+    return {
+        props: {
+            guest
+        }
+    }  
 }
 
 

@@ -15,12 +15,12 @@ const TimeAndPlacePage = (): JSX.Element => {
                 </div>
             </div>
             <div className = "text-md font-normal text-[#E2DA97] text-center mb-10">Yang akan dilaksanakan pada:</div>
-            <div className="flex flex-col md:flex-row p-4">
+            <div className="flex flex-col md:flex-row p-4 mb-10 ">
                 <div className = " md:mr-2 flex flex-col w-full md:w-1/2 p-4 items-center justify-center mb-10  rounded-lg">
-                    <div className = "text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] w-full flex items-center justify-center font-moonRegular font-bold text-4xl mb-5 text-white">
+                    <div className = "font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#A98F5B] via-[#FBE698] to-[#A98F5B] font-moonRegular text-4xl">
                         Akad Nikah
                     </div>
-                    <div className = "w-full flex items-center text-center justify-center font-normal text-md mb-1 text-[#E2DA97]">
+                    <div className = "mt-3 w-full flex items-center text-center justify-center font-normal text-md mb-1 text-[#E2DA97]">
                         Minggu, 9 Oktober 2023
                     </div>
                     <div className = "w-full flex items-center justify-center font-normal text-md mb-5 text-[#E2DA97]">
@@ -31,10 +31,10 @@ const TimeAndPlacePage = (): JSX.Element => {
                     </div>
                 </div>
                 <div className = " md:ml-2 flex flex-col w-full md:w-1/2 p-4 items-center justify-center mb-10  rounded-lg">
-                    <div className = "text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] w-full flex items-center justify-center font-moonRegular text-4xl mb-5 font-bold text-white">
+                    <div className = "font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#A98F5B] via-[#FBE698] to-[#A98F5B] font-moonRegular text-4xl">
                         Resepsi
                     </div>
-                    <div className = "w-full flex items-center text-center justify-center font-normal text-md mb-1 text-[#E2DA97]">
+                    <div className = "mt-3 w-full flex items-center text-center justify-center font-normal text-md mb-1 text-[#E2DA97]">
                         Minggu, 9 Oktober 2023
                     </div>
                     <div className = "w-full flex items-center justify-center font-normal text-md mb-5 text-[#E2DA97]">
@@ -45,7 +45,7 @@ const TimeAndPlacePage = (): JSX.Element => {
                     </div>
                 </div>
                 <div className = "absolute flex-col left-0 flex items-center justify-center -bottom-12 w-full ">
-                    <div className =" text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] w-full flex items-center justify-center font-moonRegular text-2xl mb-2 font-bold text-white">Counting down to the Big Day</div>
+                    <div className =" text-transparent bg-clip-text bg-gradient-to-r from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D] w-full flex items-center justify-center font-moonRegular text-2xl mb-2 font-bold">Counting down to the Big Day</div>
                     <div className = "flex items-center justify-center flex-col p-3 rounded-lg bg-gradient-to-b from-[#8C5D1D] via-[#FBE698] to-[#8C5D1D]">
                         <CountdownTimer targetDate={dateTimeAfterThreeDays} />
                     </div>

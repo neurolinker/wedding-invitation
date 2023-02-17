@@ -17,16 +17,16 @@ const Navigation = ({ open, onOpen, onAudio }: NavigationProps): JSX.Element => 
                     <div className = " hidden md:block fixed bottom-10 -right-16">
                         <img className = "w-80 -rotate-45" src="./images/dark-blue/pita.webp" alt="pita-lg" />
                     </div>
-                    <div onClick={() => opening()} className = "hidden md:flex z-50 -rotate-45 fixed bottom-20 right-20 p-0.5 bg-gradient-to-r from-[#8C5D1D] via-[#B5AF82] to-[#8C5D1D] rounded-full">
-                        <div className = "flex animate-pulse rounded-full py-4 px-2 bg-gradient-to-r from-[#2E2B2D] via-[#575757] to-[#2E2B2D] text-white text-sm">
-                            Open
+                    <div onClick={() => opening()} className = "hidden md:flex z-50 -rotate-45 fixed bottom-20 -m-2 right-20 p-0.5 bg-gradient-to-r from-[#8C5D1D] via-[#B5AF82] to-[#8C5D1D] rounded-full">
+                        <div className = "flex animate-pulse rounded-full py-5 px-3.5 bg-gradient-to-r from-[#2E2B2D] via-[#575757] to-[#2E2B2D] text-white text-md">
+                            Buka 
                         </div> 
                     </div>
                     <div className = "flex md:hidden items-center justify-center fixed top-0 h-screen w-full bottom-1/2 z-50">
                         <img className = "w-full mt-16" src="./images/dark-blue/pita.webp" alt="pita-sm" />
                         <div onClick={() => opening()} className = "mt-9 z-50 flex fixed p-0.5 bg-gradient-to-r from-[#8C5D1D] via-[#B5AF82] to-[#8C5D1D] rounded-full">
-                            <div className = "flex animate-pulse rounded-full py-4 px-2 bg-gradient-to-r from-[#2E2B2D] via-[#575757] to-[#2E2B2D] text-white text-sm">
-                                Open
+                            <div className = "flex animate-pulse rounded-full py-5 px-3.5 bg-gradient-to-r from-[#2E2B2D] via-[#575757] to-[#2E2B2D] text-white text-md">
+                                Buka
                             </div> 
                         </div>
                     </div>
