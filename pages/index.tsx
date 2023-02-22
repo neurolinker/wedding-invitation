@@ -45,16 +45,16 @@ function Index({url}): JSX.Element {
                                     <div className = "text-xs mb-2">Share:</div>
                                     <div className = "flex space-x-2">
                                         <WhatsappShareButton
-                                            url={url+"/"+guest}
-                                            title={'Kami bermaksud mengundang anda ke pernikahan kami'}
-                                            separator="💕"
+                                            url={"https://"+url+"/"+guest}
+                                            title={'Kami bermaksud mengundang anda ke pernikahan kami '}
+                                            separator=" 💕 "
                                         >
                                             <WhatsappIcon size={32} round />
                                         </WhatsappShareButton>
 
                                         <TelegramShareButton
-                                            url={url+"/"+guest}
-                                            title={'Kami bermaksud mengundang anda ke pernikahan kami'}
+                                            url={"https://"+url+"/"+guest}
+                                            title={'Kami bermaksud mengundang anda ke pernikahan kami '}
                                         >
                                             <TelegramIcon size={32} round />
                                         </TelegramShareButton>
